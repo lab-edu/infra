@@ -23,7 +23,17 @@ infra/
 1. 复制 `.env.example` 为 `.env`
 2. 按需调整数据库、端口与镜像配置
 3. 执行 `./scripts/up.sh` 启动开发环境
-4. 通过 `http://localhost:3000` 访问统一入口
+4. 建议在本机 hosts 中映射：
+	- `127.0.0.1 lab-edu.team`
+	- `127.0.0.1 core.lab-edu.team`
+5. 通过 `http://lab-edu.team` 访问 web，`http://core.lab-edu.team` 访问 core（含 Swagger）
+
+## 路由规则
+
+- `lab-edu.team` -> `web:3000`
+- `core.lab-edu.team` -> `core:8080`
+- web 调用 core 使用 `NEXT_PUBLIC_API_BASE_URL`（建议设为 `http://core.lab-edu.team/api/v1`）
+- core CORS 来源由 `LAB_ALLOWED_ORIGINS` 控制
 
 ## 镜像来源
 
