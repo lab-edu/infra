@@ -25,10 +25,6 @@ services:
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      LAB_ALLOWED_ORIGINS: ${LAB_ALLOWED_ORIGINS:-http://lab-edu.team,http://localhost:3000,http://127.0.0.1:3000}
-      LAB_SECURITY_JWT_COOKIE_DOMAIN: ${LAB_SECURITY_JWT_COOKIE_DOMAIN:-}
-      LAB_SECURITY_JWT_COOKIE_SECURE: ${LAB_SECURITY_JWT_COOKIE_SECURE:-false}
-      LAB_SECURITY_JWT_COOKIE_SAME_SITE: ${LAB_SECURITY_JWT_COOKIE_SAME_SITE:-Lax}
     expose:
       - "8080"
     depends_on:
@@ -41,8 +37,6 @@ services:
     container_name: lab-edu-web
     environment:
       NODE_ENV: production
-      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://core.lab-edu.team/api/v1}
-      NEXT_PUBLIC_CORE_DOCS_URL: ${NEXT_PUBLIC_CORE_DOCS_URL:-http://core.lab-edu.team/swagger-ui.html}
     expose:
       - "3000"
     depends_on:
