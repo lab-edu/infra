@@ -23,7 +23,12 @@ infra/
 1. 复制 `.env.example` 为 `.env`
 2. 按需调整数据库、端口与镜像配置
 3. 执行 `./scripts/up.sh` 启动开发环境
-4. 通过 `http://localhost:3000` 访问统一入口
+
+## 路由规则
+
+- `localhost:3000` -> `web:3000`
+- `localhost:8080` -> `core:8080`
+- web 的 core 基地址由 `NEXT_PUBLIC_CORE_BASE_URL` 提供，默认 `http://localhost:8080`
 
 ## 镜像来源
 
